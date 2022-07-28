@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from 'styled-components';
 export const GlobalStyle = createGlobalStyle `
+
   * {
     font-family: 'apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
@@ -10,4 +11,7 @@ export const GlobalStyle = createGlobalStyle `
     box-sizing: border-box;
   }
 
+`
+export const input = styled.input `
+  margin-left: 20px;
 `
