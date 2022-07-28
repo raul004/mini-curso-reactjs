@@ -25,21 +25,17 @@ const GlobalStyle = createGlobalStyle `
   }
 
 `
-
 const DivTitle = styled.div `
   padding-top: 10px;
 `
-
 const Title = styled.h1 `
   font-size: 35px;
   color: rgb(87, 87, 87);
   padding-bottom: 10px;
 `
-
 const Description = styled.p `
   color: rgb(87, 87, 87);
 `
-
 const DivImg = styled.div `
 
 `
@@ -47,19 +43,54 @@ const Image = styled.img `
   border-radius: 120px;
 `
 
+const ItemCard = ({title, descricao, imagem, alternativo}) => {
+  return (
+    <Container>
+      <DivTitle>
+        <Title>{title}</Title>
+        <Description>{descricao}</Description>
+      </DivTitle>
+      <DivImg>
+        <Image src={imagem} alt={alternativo} id="img"/>
+      </DivImg>
+    </Container>
+  )
+}
+
 function App() {
+
+  const listaTarefas = [
+    {
+      title:"Título da Tarefa",
+      descricao:"descrição da sua tarefa!",
+      imagem:"pica-pau.jpg",
+      alternativo: "imagem do personagem pica-pau com um óculos escuros."
+    },
+
+    {
+      title:"Tomar banho",
+      descricao:"Sabonete",
+      imagem:"pica-pau.jpg",
+      alternativo: "imagem do personagem pica-pau com um óculos escuros."
+    },
+
+    {
+      title:"Cachorro quente",
+      descricao:"salsicha",
+      imagem:"pica-pau.jpg",
+      alternativo: "imagem do personagem pica-pau com um óculos escuros."
+    }
+
+  ]
+
   return (
     <>
       <GlobalStyle/>
-      <Container>
-          <DivTitle>
-            <Title>Título da Tarefa</Title>
-            <Description>descrição da minha tarefa.</Description>
-          </DivTitle>
-          <DivImg>
-            <Image src="pica-pau.jpg" alt="" id="img"/>
-          </DivImg>
-      </Container>
+      {
+        listaTarefas.map((tarefa =>
+          <ItemCard {...tarefa}/>
+        ))
+      }
     </>
 
   );
